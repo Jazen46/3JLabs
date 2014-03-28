@@ -1,0 +1,34 @@
+<html>
+<head>
+  <title> Upload Your File </title>
+  <script src = "js/angular/angular.min.js"> </script>
+  <script src = "js/angular/ng-flow.min.js"></script>
+  <script src = "js/script.js"> </script>
+  
+</head>
+
+<body>
+  <!-- Code adapted from flowjs.githubio/ng-flow-->
+  <div ng-flow-init ng-files-submitted="$flow.upload()" class = "ng-scope">
+    <div ng-flow-drop ng-drag-over-class="drag-over">
+      <span ng-flow-btn>
+	"Upload File" <input type = "file" multiple="multiple">
+      </span>
+      <span ng-flow-btn ng-directory ng-show="$flow.supportDirectory">
+	"Upload Folder"
+	<input type="file" multiple="multiple" webkitdirectory="webkitdirectory">
+      </span>
+      <b> OR </b>
+      "Drag and Drop your file here"
+    </div>
+    <div>
+      <a ng-click="$flow.resume()"> Resume all </a>
+      <a ng-click="$flow.pause()"> Pause all </a>
+      <a ng-click="$flow.cancel()"> Cancel all </a>
+      <span class = "label label-info ng-binding"> Total Size: 0bytes</span>
+    </div>
+    <div ng-flow-transfers class = "ng-scope">
+    </div>
+  </div>
+</body>
+</html> 
