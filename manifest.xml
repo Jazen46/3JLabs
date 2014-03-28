@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+  package="com.3j.android.arspace"
+  android:versionCode="1"
+  android:versionName="1.0">
+  android:installLocation="preferExternal"
+  
+
+  <uses-permission android:name="android.permission.CAMERA" 
+		   android:required="true"
+		   />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+		   />
+  <permission android:name="android.hardware.camera">
+  
+  <uses-feature android:name="android.hardware.camera" />
+    
+  <application>
+
+    <activity>
+      <intent-filter>
+	<action />
+	<category />
+	<data />
+      </intent-filter>
+      <meta-data />
+    </activity>
+    
+    <activity-alias>
+      <intent-filter>  </intent-filter>
+      
+
+      <meta-data />
+    </activity-alias>
+
+
+    <service>
+      <intent-filter>   </intent-filter>
+      <meta-data/>
+    </service>
+    
+    <receiver>
+      <intent-filter>   </intent-filter>
+      <meta-data />
+    </receiver>
+
+    <provider>
+      <grant-uri-permission />
+      <meta-data />
+      <path-permission />
+    </provider>
+
+    <uses-library />
+
+  </application>
+
+</manifest>
