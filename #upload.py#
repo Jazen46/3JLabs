@@ -1,0 +1,9 @@
+import os.path
+from flask import Flask, redirect, request, url_for
+from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.storage import get_default_storage_class
+from flask.ext.uploads import delete, init, save, Upload
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+app.config['DEFAULT_FILE_STORAGE'] = 'filesystem'
