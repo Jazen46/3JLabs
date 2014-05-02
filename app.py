@@ -1,36 +1,47 @@
-import os
-from flask import Flask, request, redirect, url_for, render_template
-from flask.ext.pymongo import PyMongo
-
+import os.path
+from flask import Flask, redirect, request, render_template, url_for
+from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.storage import get_default_storage_class
+from flask.ext.uploads import delete, init, save, Upload
 
 app = Flask(__name__)
-mongo = PyMongo(app)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+app.config['DEFAULT_FILE_STORAGE'] = 'filesystem'
+app.config['UPLOADS_FOLDER'] = os.path.realpath('.') + '/static/'
+app.config['FILE_SYSTEM_STORAGE_FILE_VIEW'] = 'static'
+init(SQLAlchemy(app), get_default_storage_class(app))
 
-@app.route('/uploads/<path:filename>')
-def get_file(filename):
-    return mongo.send_file(filename)
+@app.route('/')
+def index():
+    """List the uploads."""
+    uploads = Upload.query.all()
+    return (
+        '<a href="/upload">New Upload</a><br>' +
+        u''.join(
+            u'<a href="%s">%s</a>'
+            u'<form action="/delete/%s" method="POST">'
+            u' <button type="submit">Delete</button>'
+            u'</form><br>'
+            % (Storage().url(u.name), u.name, u.id)
+            for u in uploads
+        )
+    )
 
-#data is the file being uploaded
-#@app.route('/uploads/<path:filename>',methods=['POST'])
-def save_file(filename, file):
-    mongo.save_file(filename, file)
-    return filename
+@app.route('/upload', methods=['GET', 'POST'])
+def upload():
+    """Upload a new file."""
+    if request.method == 'POST':
+        save(request.files['file'])
+        return redirect(url_for('index'))
+    return render_template('upload.html')
 
-@app.route('/', methods=['POST','GET'])
-def upload_file():
 
-    if request.method =="POST":
-        print "got here"
-        filename = request.form.get("title","")
-        print "sofarsogood"
-        file = request.files['file']
-        print"still good"
-        save_file(filename,file)
-        print "huh, still good"
-        print filename
-        return redirect("/uploads/" + filename)
-    else:
-        return render_template("upload.html")
+@app.route('/delete/<int:id>', methods=['POST'])
+def remove(id):
+    """Delete an uploaded file."""
+    upload = Upload.query.get_or_404(id)
+    delete(upload)
+    return redirect(url_for('index'))
         
     
 if __name__ == "__main__":

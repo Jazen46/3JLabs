@@ -14,7 +14,8 @@ def get_file(filename):
 #@app.route('/uploads/<path:filename>',methods=['POST'])
 def save_file(filename, file):
     mongo.save_file(filename, file)
-    return filename
+    
+    
 
 @app.route('/', methods=['POST','GET'])
 def upload_file():
