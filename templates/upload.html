@@ -1,10 +1,48 @@
 <html>
+<style>
+body{
+margin-left: 10%;
+margin-right:auto;
+text-align: center;
+
+
+
+}
+.file-types{
+color: grey;
+font-size:10px;
+
+}
+</style>
 <body>
 <form method = "POST" enctype ="multipart/form-data">
-<label for="title"> Package Name </labeL>
-<input type = "text" id = "title" name = "title"> 
-<label for="file"> Filename:</label>
-<input type="file" name="file" id="file"> 
+<h1> Create a Package: </h1>
+<input type = "text" id = "title" name = "title" placeholder = "Package Name"> 
+<br>
+<br>
+<textarea id = "summary" name = "summary" placeholder="Description"></textarea>
+<br>
+<h2>Upload your files:</h2>
+<label for="main"> Main File:</label>
+<input type="file" name="main" id="main">
+<br>
+<span class="file-types"> Accepted File Types: GIF, PNG, BMP, JPG </span>
+<br>
+<label for="music"> Music:</label>
+<input type="file" name="music" id="music">
+<br>
+<span class="file-types"> Accepted File Types: MP3 </span>
+<br>
+
+<!--Other files:
+
+
+
+Config Settings:
+Persistant?
+-->
+<br>
+
 <input type="submit" value = "Upload">
 </body>
 
