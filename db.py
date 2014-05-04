@@ -31,7 +31,10 @@ def changePW(username, oldpw, newpw):
     return 1
 
 def addUpload(username, uploadid):
-    newuploads=db.Collections.find_one({'username':username})["uploads"].push(uploadid)
+    newuploads=db.Collections.find_one({'username':username})["uploads"]
+    print newuploads
+    newuploads.append("uploadid")
+    print newuploads
     db.Collections.update({'username':username},{'$set':{'uploads':newuploads}})
 
 def getUploads(username):
