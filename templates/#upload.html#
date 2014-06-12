@@ -4,20 +4,16 @@ body{
 margin-left: 10%;
 margin-right:auto;
 text-align: center;
-
-
-
 }
 .file-types{
 color: grey;
 font-size:10px;
-
 }
 </style>
 <body>
-<form action=upload method = "POST" enctype ="multipart/form-data">
-<h1> Create A Package: </h1>
-<input type ="text" id="package" name="package" placeholder = "Package Name"> 
+<form action='upload' method = "POST" enctype ="multipart/form-data">
+<h1> Create a Package: </h1>
+<input type = "text" id = "title" name = "title" placeholder = "Package Name"> 
 <br>
 <br>
 <textarea id = "summary" name = "summary" placeholder="Description"></textarea>
@@ -33,16 +29,11 @@ font-size:10px;
 <br>
 <span class="file-types"> Accepted File Types: MP3 </span>
 <br>
-
 <!--Other files:
-
-
-
 Config Settings:
 Persistant?
 -->
 <br>
-
 <input type="submit" value = "Upload">
 </body>
 
