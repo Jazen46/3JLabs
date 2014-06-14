@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel='stylesheet' href='{{ url_for("static",filename="dashboard.css")}}'/>
+	<script src='script.js'></script>
+</head>
+<body>
+<div id=floater>
+<!--
+    <div id=search-box> 
+    <input type=search results=5 name="package-search" id="package-search" placeholder="Package Name">
+    <input type=submit name=search id=search value=Search>
+    </div>
+    -->
+    <a href="/logout">
+    <div id=logout class=floater-button> LOGOUT </div></a>
+</div>
+<div id=content>
+    <h3 class='header'> Your Packages: </h3>
+    
+    {% for upload in uploads %}
+    <div class=package>
+        <img class=preview src={{"uploads/"+{upload["Creator"]}+"/"+{upload["Package"]}+"/"+{upload["Main"]} +""}} name=preview>
+        
+    </div>
+    {% endfor %} 
+    <br>
+    <a href='/upload'>
+    <div class=button>Create New Package </div></a>
+</div>
+</body>
+</html>

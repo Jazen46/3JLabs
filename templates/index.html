@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+    <link rel='stylesheet' href='{{ url_for("static",filename="index.css")}}'/>
+    <script type="text/javascript" src={{url_for('static',filename='js/index.js')}}></script>
+</head>
+<body>
+    <div id=floater>
+    </div>
+    
+    <div id="login-container">
+        <div id="grid-row">
+            <div id="login-tab" class="tab active"> Login </div>
+            <div id="signup-tab" class=tab> Sign Up</div>
+        </div>
+        <div id="login-box">
+            <form action=login method=POST>
+            <input type=text placeholder=Username name=username>
+            <input type=password placeholder=Password name=password>
+            <input type=submit value=LOGIN name=login>
+        </div>
+    </div>
+</body>
+</html>

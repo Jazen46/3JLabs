@@ -1,0 +1,35 @@
+body{
+    font-family: sans;
+}
+.tab{
+    width: 110px;
+    border: 1px;
+    border-style: solid;
+    margin:2px;
+    float:left;
+    text-align: center;
+    padding-top: 5px;
+    border-radius: 10px;
+    border-color: gray;
+}
+.active{
+    border-color: red;
+}
+#login-container{
+    width: 233px;
+    float:right;
+    margin-top: 20%;   
+}
+input[type=text],input[type=password]{
+    height:30px;
+    margin-top: 10px;
+}
+input[type=submit]{
+    width: 100%;
+    margin-top: 10px;
+    border:1px;
+    border-style:solid;
+    background-color: white;
+    height: 30px;
+    border-radius: 5px;
+}

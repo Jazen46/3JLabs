@@ -1,0 +1,65 @@
+#floater{
+    background-color:white;
+    width: 100%;
+    height: 1.5em;
+    border-color: white;
+    border-bottom: thick;
+    border-style: solid;
+    position: absolute;
+    top: -1.5em;
+}
+#floater:hover{
+    top: 0em;
+}
+.floater-button{
+    width: 5em;
+    border-style: solid;
+    border-top: white;
+    padding-top: 3px;
+    float:right;
+    text-align: center;
+    margin-right: 1em;
+}
+.search-box{
+    float: left;
+}
+#package-search{
+    width: 10em;   
+}
+#content{
+    margin-top: 5em;   
+    text-align: center;
+}
+.header{
+    text-align: center;
+}
+.package{
+    height: 10em;
+    background-color: #33FF99;
+    margin: 10px;
+    display: inline-block;
+    border-radius: 1em;
+}
+.preview{
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    height: 90%;
+
+}
+.package:hover{
+    opacity: .5;
+    
+
+
+}
+.button{
+    width: 12em;
+    padding: .5em;
+    display: inline-block;
+    color: white;
+    border-radius: .2em;
+    background-color: red;
+}
+.button:hover{
+       
+}

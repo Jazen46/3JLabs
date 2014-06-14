@@ -1,5 +1,6 @@
 from pymongo import MongoClient
 from flask import session
+from random import randint
 c = MongoClient()
 db = c.users
 
@@ -30,12 +31,14 @@ def changePW(username, oldpw, newpw):
         return 0
     return 1
 
-def addUpload(username, uploadid):
+def addUpload(username,uploadinfo):
     newuploads=db.Collections.find_one({'username':username})["uploads"]
-    print newuploads
-    newuploads.append("uploadid")
-    print newuploads
+    uploadid = generateID()
+    newuploads.append({uploadid:uploadinfo})
     db.Collections.update({'username':username},{'$set':{'uploads':newuploads}})
 
 def getUploads(username):
     return db.Collections.find_one({'username':username})['uploads']
+
+def generateID():
+    return str(randint(0,99999999));
