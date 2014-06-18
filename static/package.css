@@ -37,5 +37,8 @@ td{
     color: white;
 }
 #main{
-    height:5em;
+    height:10em;
+}
+.QR{
+    height: 5em;
 }

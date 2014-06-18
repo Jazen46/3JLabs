@@ -28,17 +28,25 @@
         {{package["Main"]}}
         </td>
         <td>
-        <a href={{package["Main"]}} download={{package["main"]}}>
+        <a href={{package["Main"]}} download={{package["Main"]}}>
         <div class=download-button> Download File </div>
         </a>
         </td>
     </tr>
     <tr>
         <td>
-        File 2.txt
+        {{package["Music"]}}
+        </td>
+        <td>
+        <a href={{package["Music"]}} download={{package["Music"]}}>
+        <div class=download-button> Download File </div>    
         </td>
     </tr>
     </table>
+    <a href={{"https://api.qrserver.com/v1/create-qr-code/?data="+package["uploadid"]}}>
+    <h3> PRINT QR CODE </h3>
+        <img src={{"https://api.qrserver.com/v1/create-qr-code/?data="+package["uploadid"]+"&amp;size=100x100"}} class="QR" alt="" title="" />
+    </a>
 </div>
 </body>
 </html>
