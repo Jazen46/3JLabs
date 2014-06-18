@@ -17,12 +17,19 @@
 </div>
 <div id=content>
     <h3 class='header'> Your Packages: </h3>
-    
     {% for upload in uploads %}
+    <a href={{
+    "/uploads/"+upload['Creator']+"/"+upload['Package']
+    }}>
     <div class=package>
-        <img class=preview src={{"uploads/"+{upload["Creator"]}+"/"+{upload["Package"]}+"/"+{upload["Main"]} +""}} name=preview>
-        
+        <img class=preview src=
+        {{"uploads/" + 
+        upload["Creator"] + "/"+
+        upload["Package"] + "/"+
+        upload["Main"]}} 
+        name=preview>
     </div>
+    </a>
     {% endfor %} 
     <br>
     <a href='/upload'>
