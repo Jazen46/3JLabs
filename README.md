@@ -1,18 +1,23 @@
 3JLabs
 ======
+Intended Functionality:
+	 Users can upload images, music, and text.
+	 We then link to a QR code, which the Android app processes.
+	 Users are then prompted to view or download. Upon which:
+	       Main Image (if any) is superimposed onto the camera. 
+	       BGM begins to play.
+	 Other files will be available to view.
+	 Currently only meant to add flavor to an object or location.
 
-Jason, Jeffrey, Jared
+Server End: 
+Creating an account: 
+	 I have not gotten around to making a feedback system. Usernames must be at least 4 letters long, and passwords must be at least 6 letters long and match.
 
-April 8th: Jason pushed his work from the past week or so. None of it works.
-      Jason's immediate goal: Get the devkit and AVD working. Then get a live camera working.
+Left to do: 
+     Add feedback for unsuccessful registrations/logins.
+     Legitimate validation systems. Currently just yes man-ing all requests.
+     Popularity systems: likes, dislikes, comments
+     Editing your uploads
+     General QoL and design improvements.
 
-
-For the Spring Break:
-
-Jeffrey: Get the computer end working (push to and pull from database)
-	 Learn Android, and catch up with Jason
-
-Jason: Get the camera working, and be able to superimpose images onto the screen
-
-Jared: Work on frontend for the website half of it.
-       
+Android App End: 
