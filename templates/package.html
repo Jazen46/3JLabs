@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel='stylesheet' href='{{ url_for("static",filename="package.css")}}'/>
+	<link rel='stylesheet' href='{{ url_for("static",filename="dashboard.css")}}'/>
+
+</head>
+<body>
+<div id=floater>
+
+    <a href="/logout">
+    <div id=logout class=floater-button> LOGOUT </div></a>
+</div>
+
+<div id=content>
+    <h2 id=title>{{package["Package"]}}</h2>
+    <h3> By <a href={{"/uploads/"+package['Creator']}}>{{package["Creator"]}} </a></h3>
+    <img id=main src={{package["Main"]}}>
+    <br>
+    <h3>Summary:</h3>
+    <div id=summary> 
+        {{package['Summary']}}
+    </div>
+    <h3>Files:</h3>
+    <table id=files>
+    <tr>
+        <td class =file>
+        {{package["Main"]}}
+        </td>
+        <td>
+        <a href={{package["Main"]}} download={{package["main"]}}>
+        <div class=download-button> Download File </div>
+        </a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        File 2.txt
+        </td>
+    </tr>
+    </table>
+</div>
+</body>
+</html>

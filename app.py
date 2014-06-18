@@ -67,23 +67,35 @@ def upload():
             package=str(request.form.get("package",""))
             createDirectory(app.config['UPLOAD_FOLDER'] + session['username'] + "/"+ package)
             filename=secure_filename(file.filename)
+            summary=str(request.form.get("summary"))
             file.save(os.path.join(app.config['UPLOAD_FOLDER']+session['username']+'/'+ package,filename))
             #music=secure_filename(mp3.filename)
             #file.save(os.path.join(app.config['UPLOAD_FOLDER']+package,music))
-            uploadinfo = {'Creator':session['username'],'Package':package,'Main':filename};
+            uploadinfo = {'Creator':session['username'],
+                'Package':package,
+                'Main':filename,
+                'Summary':summary};
             db.addUpload(session['username'],uploadinfo)
-            return redirect(url_for('uploaded_file',username=session['username'],package=package,filename=filename))
+            return redirect(url_for("dashboard"))
+            #return redirect(url_for('uploaded_file',username=session['username'],package=package,filename=filename))
     return render_template('upload.html')
 
 @app.route('/uploads/<username>/')
-def package(username,package):
+def user(username):
     uploads = db.getUploads(username)
-
+    return render_template("user.html",uploads=uploads)
 
 
 @app.route('/uploads/<username>/<package>/<filename>')
 def uploaded_file(username,package,filename):
     return send_from_directory(app.config['UPLOAD_FOLDER']+username+"/"+package,filename)
+
+@app.route('/uploads/<username>/<package>/')
+def uploaded_package(username,package):
+    uploads = db.getUploads(username)
+    package=[upload for upload in uploads if upload["Package"]==package][0]
+    return render_template("package.html",package=package)
+
 @app.route('/delete/<int:id>', methods=['POST'])
 def remove(id):
     """Delete an uploaded file."""

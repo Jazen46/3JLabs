@@ -1,0 +1,41 @@
+body{
+    background-color: #F1F2F2;
+    text-align: center;
+    font-family: "Arial";
+    font-size: 1em;
+}
+#summary{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    padding: .5em;
+    border-radius: 1em;
+}
+#title{
+    font-size: 2.5em;   
+    color: #204056;
+}
+#rank{
+    font-size: .8em;   
+}
+#files{
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 1em;
+    background-color: white;
+}
+td{
+    padding-left: 1em;
+    padding-right: 1em;
+}
+.download-button{
+    font-size: .8em;
+    padding: .2em;
+    background-color: #5555FF;
+    border-radius: 1em;
+    color: white;
+}
+#main{
+    height:5em;
+}
