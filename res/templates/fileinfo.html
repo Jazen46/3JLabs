@@ -1,0 +1,34 @@
+<html>
+
+<body>
+
+<table id="fileinfo">
+  <tr>
+    <td>Package Title</td>
+    <td> {{fileinfo["title"]}} </td>
+  </tr>  
+  <tr>
+    <td>Uploader</td>
+    <td> {{fileinfo["uploader"]}} </td>
+  </tr>
+  <tr>
+    <td>Summary</td>
+    <td> {{fileinfo["summary"]}} </td>
+  </tr>
+  <tr> 
+    <td> Files </td>
+    <td>
+    {% for i in range(fileinfo["files"]|length) %}
+    <ul id = "files">
+      <li> 
+    {% endfor %}
+    </td>
+
+  </tr>
+  <tr>
+    <td> </td>
+    <td> {{}} </td>
+  </tr>
+  {% if "username" in session && session['username'] == fileinfo['uploader'] %}
+  <a href = "edit"> Edit Package </a>
+  {% endif %}
