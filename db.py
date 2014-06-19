@@ -45,5 +45,14 @@ def addUpload(username,uploadinfo):
 def getUploads(username):
     return db.Collections.find_one({'username':username})['uploads']
 
+def getById(uploadid):
+    users = db.Collections.find()
+    for user in users:
+        if user['uploads'] != None:
+            for upload in user['uploads']:
+                if upload != None and 'uploadid' in upload: 
+                    if upload['uploadid']==uploadid:
+                        return upload
+    return []
 def generateID():
     return str(randint(0,99999999));
